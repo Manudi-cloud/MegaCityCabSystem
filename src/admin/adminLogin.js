@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setIsAuthenticated }) => {
+const AdminLogin = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -11,15 +11,22 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:9090/api/auth/login", { 
+      const response = await axios.post("http://localhost:9090/api/auth/admin/login", { 
         username, 
         password 
       });
 
       if (response.data.token) {
-        localStorage.setItem("token", response.data.token);  // Store token
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role); // Store role
+
         setIsAuthenticated(true);
-        navigate("/dashboard");  // Redirect to dashboard after login
+
+        if (response.data.role === "ADMIN") {
+          navigate("/admin-dashboard");  // Redirect admin
+        } else {
+          alert("Unauthorized! You are not an admin.");
+        }
       } else {
         alert("Invalid Credentials!");
       }
@@ -52,4 +59,4 @@ const Login = ({ setIsAuthenticated }) => {
   );
 };
 
-export default Login;
+export default AdminLogin;

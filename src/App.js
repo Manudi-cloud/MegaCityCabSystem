@@ -1,39 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Vehicles from "./pages/Vehicles";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import Guidelines from "./pages/UserGuidelines";
-import Dashboard from "./admin/dashboard"; 
-import Footer from "./components/Footer"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminLogin from "./pages/AdminLogin";
+import UserLogin from "./pages/UserLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import UserDashboard from "./pages/UserDashboard";
+import AdminRoute from "./routes/AdminRoute";
+import UserRoute from "./routes/UserRoute";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const authStatus = localStorage.getItem("isAuthenticated");
-    setIsAuthenticated(authStatus === "true");
-  }, []);
-
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/Guidelines" element={<Guidelines />} />
-        
-        {/* ✅ Protect Admin Dashboard */}
-        <Route
-          path="/admin/dashboard"
-          element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
-        />
+        {/* User Login & Dashboard */}
+        <Route path="/login" element={<UserLogin />} />
+        <Route path="/dashboard" element={<UserRoute><UserDashboard /></UserRoute>} />
+
+        {/* Admin Login & Dashboard */}
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

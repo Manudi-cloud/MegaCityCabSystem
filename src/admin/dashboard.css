@@ -4,11 +4,6 @@
     background: #f8f9fa;
   }
   
-  .heading {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
   
   .box-container {
     display: grid;

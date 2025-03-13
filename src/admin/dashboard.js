@@ -9,38 +9,38 @@ const Dashboard = () => {
 
       <div className="box-container">
         <div className="box">
-          <h3>Admin</h3>
-          <Link to="/admin/add" className="btn">Add Admin</Link>
+          <h3>View</h3>
+          <Link to="/admin/add" className="btn">View Customer Bookings</Link>
         </div>
 
         <div className="box">
-          <h3>Profile</h3>
-          <Link to="/admin/profile" className="btn">View Profile</Link>
+          <h3>Insert</h3>
+          <Link to="/admin/profile" className="btn">Insert Driver Details</Link>
         </div>
 
         <div className="box">
-          <h3>Search Packages</h3>
-          <Link to="/admin/search-packages" className="btn">Search Packages</Link>
+          <h3>Delete</h3>
+          <Link to="/admin/search-packages" className="btn">Delete Driver Details</Link>
         </div>
 
         <div className="box">
-          <h3>Add Packages</h3>
-          <Link to="/admin/add-packages" className="btn">Add Packages</Link>
+          <h3>Update</h3>
+          <Link to="/admin/add-packages" className="btn">Update Driver Details</Link>
         </div>
 
         <div className="box">
-          <h3>Update Packages</h3>
-          <Link to="/admin/update-packages" className="btn">Update Packages</Link>
+          <h3>Insert</h3>
+          <Link to="/admin/update-packages" className="btn">Insert Vehicle Details</Link>
         </div>
 
         <div className="box">
-          <h3>Delete Packages</h3>
-          <Link to="/admin/delete-packages" className="btn">Delete Packages</Link>
+          <h3>Delete</h3>
+          <Link to="/admin/delete-packages" className="btn">Delete Vehicle Details</Link>
         </div>
 
         <div className="box">
-          <h3>User</h3>
-          <Link to="/admin/view-users" className="btn">View User Accounts</Link>
+          <h3>Update</h3>
+          <Link to="/admin/view-users" className="btn">Update Vehicle Details</Link>
         </div>
       </div>
     </section>
