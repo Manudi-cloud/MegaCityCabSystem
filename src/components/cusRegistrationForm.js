@@ -30,7 +30,7 @@ const cusRegistrationForm = () => {
         setMessage(result);
       } else {
         const error = await response.text();
-        setMessage(Error: ${error});
+        setMessage(Error, $,{error});
       }
     } catch (error) {
       setMessage("Error connecting to server");
